@@ -17,19 +17,19 @@ import com.wellsgfargo.stockexchange.company.entity.Company;
 import com.wellsgfargo.stockexchange.company.repository.CompanyRepository;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("")
 public class CompanyController {
 	
 	@Autowired
 	CompanyRepository repo;
 	
-	@GetMapping("/all")
-	public List<Company> getAllCompany(@PathVariable int id)
+	@GetMapping("/company/all")
+	public List<Company> getAllCompany()
 	{
 		List<Company> companies=repo.findAll();
 		return companies;
 	}
-	@GetMapping("/{id}")
+	@GetMapping("/company/{id}")
 	public Optional<Company> getCompany(@PathVariable int id)
 
 	{
@@ -37,7 +37,7 @@ public class CompanyController {
 		return company;
 	}
 	
-	@PostMapping("/")
+	@PostMapping("/company")
 	public  Company saveEmployee(@RequestBody Company c)
 
 	{
@@ -45,7 +45,7 @@ public class CompanyController {
 		return company;
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/company")
 	public Company updateEmployee(@RequestBody Company c)
 
 	{
@@ -53,7 +53,7 @@ public class CompanyController {
 		return company;
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/company/{id}")
 	public String deleteEmployee(@PathVariable int id)
 
 	{
