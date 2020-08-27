@@ -1,10 +1,12 @@
 package com.wellsgfargo.stockexchange.company.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+
+@Entity
 @Table(name="Company")
 public class Company {
 	
@@ -27,16 +29,19 @@ public class Company {
 	@Column(name="code")
 	String code;
 	
-	@Column(name="contant_id")
-	int contant_id;
-	
 	@Column(name="stock_exchange_id")
 	int stockExchangeId;
 	
+	@Column(name="board")
+	String board;
+	
+	@Column(name="turnover")
+	long turnover;
+	
 	Company(){}
 
-	public Company(int id, String name, String ceo, String sectorId, String brief, String code, int contant_id,
-			int stockExchangeId) {
+	public Company(int id, String name, String ceo, String sectorId, String brief, String code, int stockExchangeId,
+			String board, long turnover) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -44,9 +49,12 @@ public class Company {
 		this.sectorId = sectorId;
 		this.brief = brief;
 		this.code = code;
-		this.contant_id = contant_id;
 		this.stockExchangeId = stockExchangeId;
+		this.board = board;
+		this.turnover = turnover;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -96,12 +104,20 @@ public class Company {
 		this.code = code;
 	}
 
-	public int getContant_id() {
-		return contant_id;
+	public String getBoard() {
+		return board;
 	}
 
-	public void setContant_id(int contant_id) {
-		this.contant_id = contant_id;
+	public void setBoard(String board) {
+		this.board = board;
+	}
+
+	public long getTurnover() {
+		return turnover;
+	}
+
+	public void setTurnover(long turnover) {
+		this.turnover = turnover;
 	}
 
 	public int getStockExchangeId() {
@@ -115,8 +131,11 @@ public class Company {
 	@Override
 	public String toString() {
 		return "Company [id=" + id + ", name=" + name + ", ceo=" + ceo + ", sectorId=" + sectorId + ", brief=" + brief
-				+ ", code=" + code + ", contant_id=" + contant_id + ", stockExchangeId=" + stockExchangeId + "]";
+				+ ", code=" + code + ", stockExchangeId=" + stockExchangeId + ", board=" + board + ", turnover="
+				+ turnover + "]";
 	}
+
+	
 	
 	
 
