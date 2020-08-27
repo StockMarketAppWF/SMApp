@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.controller;
+package com.wellsgfargo.stockexchange.company.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,58 +10,55 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.wellsgfargo.stockexchange.company.entity.CompanyIPO;
-import com.wellsgfargo.stockexchange.company.service.CompanyIPOService;
+import com.wellsgfargo.stockexchange.company.repository.CompanyIPORepository;
 
-
-@RestController
-public class CompanyIPOController {
+public class CompanyIPOService {
 	
 	@Autowired
-	CompanyIPOService service;
+	CompanyIPORepository repo;
 	
 	@GetMapping("/ipo/all")
-	public List<CompanyIPO> getAllCompanyIPO(@PathVariable int id)
+	public List<CompanyIPO> getAllCompanyIPO()
 	{
-		List<CompanyIPO> ipos=service.getAllCompanyIPO();
+		List<CompanyIPO> ipos=repo.findAll();
 		return ipos;
 	}
 	@GetMapping("/ipo/{id}")
-	public Optional<CompanyIPO> getCompanyIPO(@PathVariable int id)
+	public Optional<CompanyIPO> getCompanyIPO(int id)
 
 	{
-		Optional<CompanyIPO> CompanyIPO=service.getCompanyIPO(id);
+		Optional<CompanyIPO> CompanyIPO=repo.findById(id);
 		return CompanyIPO;
 	}
 	
 	@PostMapping("/ipo")
-	public  CompanyIPO saveIPO(@RequestBody CompanyIPO c)
+	public  CompanyIPO saveIPO(CompanyIPO c)
 
 	{
 		c.setIposId(0);
-		CompanyIPO CompanyIPO = service.saveIPO(c);
+		CompanyIPO CompanyIPO = repo.save(c);
 		return CompanyIPO;
 	}
 	
 	@PutMapping("/ipo")
-	public CompanyIPO updateIPO(@RequestBody CompanyIPO c)
+	public CompanyIPO updateIPO(CompanyIPO c)
 
 	{
-		CompanyIPO CompanyIPO = service.saveIPO(c);
+		CompanyIPO CompanyIPO = repo.save(c);
 		return CompanyIPO;
 	}
 	
 	@DeleteMapping("/ipo/{id}")
-	public String deleteIPO(@PathVariable int id)
+	public String deleteIPO(int id)
 
 	{
-		Optional<CompanyIPO> c =service.getCompanyIPO(id);
+		Optional<CompanyIPO> c =repo.findById(id);
 		
 		if(c!=null)
 			{
-			service.deleteIPO(id);
+			repo.deleteById(id);
 			return "Deleted CompanyIPO with id "+id ;
 			}
 		else
