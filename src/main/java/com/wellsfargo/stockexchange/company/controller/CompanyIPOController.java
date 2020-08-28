@@ -23,7 +23,7 @@ public class CompanyIPOController {
 	CompanyIPOService service;
 	
 	@GetMapping("/ipo/all")
-	public List<CompanyIPO> getAllCompanyIPO(@PathVariable int id)
+	public List<CompanyIPO> getAllCompanyIPO()
 	{
 		List<CompanyIPO> ipos=service.getAllCompanyIPO();
 		return ipos;
@@ -40,7 +40,6 @@ public class CompanyIPOController {
 	public  CompanyIPO saveIPO(@RequestBody CompanyIPO c)
 
 	{
-		c.setIposId(0);
 		CompanyIPO CompanyIPO = service.saveIPO(c);
 		return CompanyIPO;
 	}
@@ -49,7 +48,7 @@ public class CompanyIPOController {
 	public CompanyIPO updateIPO(@RequestBody CompanyIPO c)
 
 	{
-		CompanyIPO CompanyIPO = service.saveIPO(c);
+		CompanyIPO CompanyIPO = service.updateIPO(c);
 		return CompanyIPO;
 	}
 	
