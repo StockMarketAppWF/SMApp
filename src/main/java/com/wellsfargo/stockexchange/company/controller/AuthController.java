@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.controller;
+package com.wellsfargo.stockexchange.company.controller;
 
 import javax.validation.Valid;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wellsgfargo.stockexchange.company.entity.User;
+import com.wellsfargo.stockexchange.company.entity.User;
 import com.wellsfargo.stockexchange.services.CustomUserDetailsService;
 
 @Controller

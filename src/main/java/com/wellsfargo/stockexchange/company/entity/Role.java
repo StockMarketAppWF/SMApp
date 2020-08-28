@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.entity;
+package com.wellsfargo.stockexchange.company.entity;
 
 
 import java.util.Set;

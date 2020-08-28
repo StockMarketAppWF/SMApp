@@ -16,10 +16,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.wellsgfargo.stockexchange.company.entity.Role;
-import com.wellsgfargo.stockexchange.company.entity.User;
-import com.wellsgfargo.stockexchange.company.repository.RoleRepository;
-import com.wellsgfargo.stockexchange.company.repository.UserRepository;
+import com.wellsfargo.stockexchange.company.entity.Role;
+import com.wellsfargo.stockexchange.company.entity.User;
+import com.wellsfargo.stockexchange.company.repository.RoleRepository;
+import com.wellsfargo.stockexchange.company.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
