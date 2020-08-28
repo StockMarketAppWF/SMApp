@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.wellsfargo.stockexchange.company.entity.CompanyIPO;
-import com.wellsgfargo.stockexchange.company.repository.CompanyIPORepository;
+import com.wellsfargo.stockexchange.company.repository.CompanyIPORepository;
 
 public class CompanyIPOService {
 	

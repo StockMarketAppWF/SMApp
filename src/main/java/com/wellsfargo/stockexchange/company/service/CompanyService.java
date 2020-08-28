@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wellsfargo.stockexchange.company.entity.Company;
-import com.wellsgfargo.stockexchange.company.repository.CompanyRepository;
+import com.wellsfargo.stockexchange.company.repository.CompanyRepository;
 
 public class CompanyService {
 	
