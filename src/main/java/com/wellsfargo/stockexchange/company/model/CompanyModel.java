@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.model;
+package com.wellsfargo.stockexchange.company.model;
 
 public class CompanyModel {
 

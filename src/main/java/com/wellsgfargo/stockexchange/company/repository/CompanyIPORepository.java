@@ -3,7 +3,7 @@ package com.wellsgfargo.stockexchange.company.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.wellsgfargo.stockexchange.company.entity.CompanyIPO;
+import com.wellsfargo.stockexchange.company.entity.CompanyIPO;
 
 
 @Repository

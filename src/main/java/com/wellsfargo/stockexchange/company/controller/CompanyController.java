@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.controller;
+package com.wellsfargo.stockexchange.company.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wellsgfargo.stockexchange.company.entity.Company;
-import com.wellsgfargo.stockexchange.company.service.CompanyService;
+import com.wellsfargo.stockexchange.company.entity.Company;
+import com.wellsfargo.stockexchange.company.service.CompanyService;
 
 @RestController
 @RequestMapping("")

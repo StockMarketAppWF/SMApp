@@ -1,4 +1,4 @@
-package com.wellsgfargo.stockexchange.company.service;
+package com.wellsfargo.stockexchange.company.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.wellsgfargo.stockexchange.company.entity.CompanyIPO;
+import com.wellsfargo.stockexchange.company.entity.CompanyIPO;
 import com.wellsgfargo.stockexchange.company.repository.CompanyIPORepository;
 
 public class CompanyIPOService {

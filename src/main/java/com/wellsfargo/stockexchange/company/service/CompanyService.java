@@ -1,11 +1,11 @@
-package com.wellsgfargo.stockexchange.company.service;
+package com.wellsfargo.stockexchange.company.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wellsgfargo.stockexchange.company.entity.Company;
+import com.wellsfargo.stockexchange.company.entity.Company;
 import com.wellsgfargo.stockexchange.company.repository.CompanyRepository;
 
 public class CompanyService {
