@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.company.configs;
+package com.wellsfargo.stockexchange.user.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.wellsfargo.stockexchange.services.CustomUserDetailsService;
+import com.wellsfargo.stockexchange.user.services.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity

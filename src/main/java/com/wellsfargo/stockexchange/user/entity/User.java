@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.company.entity;
+package com.wellsfargo.stockexchange.user.entity;
 
 
 import javax.persistence.Entity;

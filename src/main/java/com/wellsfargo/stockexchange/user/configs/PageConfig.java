@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.company.configs;
+package com.wellsfargo.stockexchange.user.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

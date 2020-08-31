@@ -1,9 +1,9 @@
-package com.wellsfargo.stockexchange.company.repository;
+package com.wellsfargo.stockexchange.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.wellsfargo.stockexchange.company.entity.User;
+import com.wellsfargo.stockexchange.user.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

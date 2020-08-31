@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.company.controller;
+package com.wellsfargo.stockexchange.user.controller;
 
 import javax.validation.Valid;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wellsfargo.stockexchange.company.entity.User;
-import com.wellsfargo.stockexchange.services.CustomUserDetailsService;
+import com.wellsfargo.stockexchange.user.entity.User;
+import com.wellsfargo.stockexchange.user.services.CustomUserDetailsService;
 
 @RestController
 public class AuthController {

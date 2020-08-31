@@ -4,8 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.wellsfargo.stockexchange.company.entity.User;
-import com.wellsfargo.stockexchange.company.repository.UserRepository;
+import com.wellsfargo.stockexchange.user.entity.User;
+import com.wellsfargo.stockexchange.user.repository.UserRepository;
 
 @SpringBootApplication
 public class StockExchangeApplication {

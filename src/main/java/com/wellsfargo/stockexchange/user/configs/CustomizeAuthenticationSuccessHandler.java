@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.company.configs;
+package com.wellsfargo.stockexchange.user.configs;
 
 import java.io.IOException;
 

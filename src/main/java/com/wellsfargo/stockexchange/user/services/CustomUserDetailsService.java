@@ -1,4 +1,4 @@
-package com.wellsfargo.stockexchange.services;
+package com.wellsfargo.stockexchange.user.services;
 
 
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.wellsfargo.stockexchange.company.entity.User;
-import com.wellsfargo.stockexchange.company.repository.UserRepository;
+import com.wellsfargo.stockexchange.user.entity.User;
+import com.wellsfargo.stockexchange.user.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -65,7 +65,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 //        userRoles.forEach((role) -> {
 //            roles.add(new SimpleGrantedAuthority(role.getRole()));
 //        });
-        roles.add(new SimpleGrantedAuthority(userRole));
+        //roles.add(new SimpleGrantedAuthority(userRole));
         
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
         return grantedAuthorities;
