@@ -1,14 +1,10 @@
 package com.wellsfargo.stockexchange.company.entity;
 
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,12 +20,10 @@ public class User {
 	private String password;
 
 	private String fullname;
+	
+	private String role;
 
 	private boolean enabled;
-
-	@ManyToMany
-	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-	private Set<Role> roles;
 
 	public Long getId() {
 		return id;
@@ -71,12 +65,12 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

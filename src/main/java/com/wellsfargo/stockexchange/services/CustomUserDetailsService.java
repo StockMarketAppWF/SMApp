@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,9 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.wellsfargo.stockexchange.company.entity.Role;
 import com.wellsfargo.stockexchange.company.entity.User;
-import com.wellsfargo.stockexchange.company.repository.RoleRepository;
 import com.wellsfargo.stockexchange.company.repository.UserRepository;
 
 @Service
@@ -27,9 +26,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Autowired
-	private RoleRepository roleRepository;
-
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	    return new BCryptPasswordEncoder();
+	}
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -37,19 +37,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 	    return userRepository.findByEmail(email);
 	}
 	
-//	public void saveUser(User user, String role) {
-//	    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//	    user.setEnabled(true);
-//	    Role userRole = roleRepository.findByRole(role);
-//	    user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-//	    userRepository.save(user);
-//	}
-	
-	public void saveUser(User user) {
+
+	public void saveUser(User user, String role) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setEnabled(true);
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        //Role userRole = roleRepository.findByRole("ADMIN");
+        User userRole = userRepository.findByRole(role);
+        //user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        userRole.setRole(role);
         userRepository.save(user);
     }
 	
@@ -58,19 +53,20 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         User user = userRepository.findByEmail(email);  
         if(user != null) {
-            List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
+            List<GrantedAuthority> authorities = getUserAuthority(user.getRole());
             return buildUserForAuthentication(user, authorities);
         } else {
             throw new UsernameNotFoundException("username not found");
         }
     }
 
-    private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
+    private List<GrantedAuthority> getUserAuthority(String userRole) {
         Set<GrantedAuthority> roles = new HashSet<>();
-        userRoles.forEach((role) -> {
-            roles.add(new SimpleGrantedAuthority(role.getRole()));
-        });
-
+//        userRoles.forEach((role) -> {
+//            roles.add(new SimpleGrantedAuthority(role.getRole()));
+//        });
+        roles.add(new SimpleGrantedAuthority(userRole));
+        
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
         return grantedAuthorities;
     }

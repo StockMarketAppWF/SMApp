@@ -3,16 +3,16 @@ package com.wellsfargo.stockexchange.company.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wellsfargo.stockexchange.company.entity.User;
 import com.wellsfargo.stockexchange.services.CustomUserDetailsService;
 
-@Controller
+@RestController
 public class AuthController {
 
 	@Autowired
@@ -23,6 +23,13 @@ public class AuthController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
 		return modelAndView;
+	}
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public String welcome() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("welcome");
+		return "Hi Admin";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -45,7 +52,7 @@ public class AuthController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("signup");
 		} else {
-			userService.saveUser(user);
+			userService.saveUser(user,"USER");
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("login");
