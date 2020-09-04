@@ -24,6 +24,10 @@ public class StockExchangeApplication {
 	        if (adminRole == null) {
 	            User newAdminRole = new User();
 	            newAdminRole.setRole("ADMIN");
+	            newAdminRole.setEmail("admin@gmail.com");
+	            newAdminRole.setPassword("admin");
+	            newAdminRole.setFullname("admin");
+	            newAdminRole.setEnabled(true);
 	            userRepository.save(newAdminRole);
 	        }
 
