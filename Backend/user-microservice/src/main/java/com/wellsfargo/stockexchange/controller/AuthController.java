@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wellsfargo.stockexchange.entity.User;
 import com.wellsfargo.stockexchange.services.CustomUserDetailsService;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class AuthController {
 

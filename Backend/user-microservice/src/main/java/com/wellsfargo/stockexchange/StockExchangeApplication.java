@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.wellsfargo.stockexchange.entity.User;
 import com.wellsfargo.stockexchange.repository.UserRepository;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
 
 @SpringBootApplication
+@EnableEurekaClient
 public class StockExchangeApplication {
 
 	public static void main(String[] args) {
