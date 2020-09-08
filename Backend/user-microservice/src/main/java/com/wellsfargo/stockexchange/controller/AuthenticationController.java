@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.wellsfargo.stockexchange.models.*;
 import com.wellsfargo.stockexchange.util.JwtUtil;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.wellsfargo.stockexchange.service.AuthenticationService;
 
@@ -45,7 +46,8 @@ public class AuthenticationController {
 	public String firstPage() {
 		return "Hello World";
 	}
-
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationTokenAdmin(@RequestBody LoginRequest loginRequest) throws Exception {
 
@@ -71,6 +73,7 @@ public class AuthenticationController {
 		return ResponseEntity.ok(new LoginResponse(jwt));
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest loginRequest) throws Exception {
 
@@ -92,6 +95,7 @@ public class AuthenticationController {
 		return ResponseEntity.ok(new LoginResponse(jwt));
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody User user) throws DataIntegrityViolationException {
 		
