@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wellsfargo.stockexchange.market.entity.Company;
 import com.wellsfargo.stockexchange.market.entity.Exchange;
 import com.wellsfargo.stockexchange.market.service.StockExchangeService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 public class StockExchangeController {
@@ -20,7 +21,7 @@ public class StockExchangeController {
 	@Autowired
 	private StockExchangeService stockExchangeService;
 	
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/stockexchange/getstockexchangelist")
 	public List<Exchange> getAllStockExchange()
 	{
@@ -28,6 +29,9 @@ public class StockExchangeController {
 		exchanges= stockExchangeService.getAllStockExchange();
 		return exchanges;
 	}
+	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/stockexchange/addstockexchange")
 	public Exchange addStockExchange(@RequestBody Exchange exchange)
 	{
@@ -41,6 +45,7 @@ public class StockExchangeController {
 		return exchange;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/stockexchange/getcompanylist/{id}")
 	public List<Company> getCompaniesList(@PathVariable int id)
 	{

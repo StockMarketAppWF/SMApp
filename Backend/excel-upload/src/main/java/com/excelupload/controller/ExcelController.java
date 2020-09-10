@@ -17,7 +17,7 @@ import com.excelupload.entity.StockPrice;
 import com.excelupload.helper.ExcelHelper;
 import com.excelupload.message.ResponseMessage;
 import com.excelupload.service.ExcelService;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/excel")
@@ -26,6 +26,7 @@ public class ExcelController {
 	@Autowired
 	  ExcelService fileService;
 
+		@CrossOrigin(origins = "http://localhost:4200")
 	  @PostMapping("/upload")
 	  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 	    String message = "";
@@ -47,6 +48,7 @@ public class ExcelController {
 	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
 	  }
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	  @GetMapping("/stockprice")
 	  public ResponseEntity<List<StockPrice>> getAllStockPrices() {
 	    try {
